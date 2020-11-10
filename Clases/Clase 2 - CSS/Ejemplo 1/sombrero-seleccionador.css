@@ -1,0 +1,26 @@
+body{
+    color:white;
+    background-color: black;
+}
+
+.remark{
+    color: green;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.large-image{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.list-borders{
+    border-style: solid;
+    border-width: 1px;
+}
+
+#header{
+    color:white;
+    
+}

@@ -1,0 +1,9 @@
+ol{
+    border:  2px solid black;
+    margin: 10px;
+}
+
+li{
+    font-size: 20px;
+    margin: 10px;
+}
