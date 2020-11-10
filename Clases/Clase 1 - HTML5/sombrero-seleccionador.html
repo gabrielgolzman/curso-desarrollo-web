@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./sombrero-seleccionador.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1 class="remark" id="header">APP SOMBRERO SELECCIONADOR!</h1>
+    </div>
+    <main>
+        <p class="remark" id="header" style="color:green">¡Descubrí a que casa de Hogwarts perteneces!</p>
+        <!--<a href = "#">A ningun lado</a> por favor, actualizar href -->
+        <a href="https://harrypotter.fandom.com/es/wiki/Sombrero_Seleccionador" target="_blank">
+            <img class="large-image" src="https://i.pinimg.com/originals/21/42/1e/21421e42efb7989255ab209932a17857.jpg"
+                width="250px" height="250px" alt="cute_fanart" />
+        </a>
+        <h4 class="remark">Las casas son:</h4>
+        <ol class="list-borders">
+            <li>Gryffindor</li>
+            <li>Slytherin</li>
+            <li>Ravenclaw</li>
+            <li>Hufflepuff</li>
+        </ol>
+        <h4>Magos famosos de Hogwarts</h4>
+        <ul class="list-borders">
+            <li>Harry Potter - Gryffindor</li>
+            <li>Luna Lovegood - Ravenclaw</li>
+            <li>Draco Malfoy - Slytherin</li>
+        </ul>
+
+        <div>
+            <form action="https://harrypotter.fandom.com/es/wiki/Sombrero_Seleccionador">
+                <h4>Elija su personalidad</h4>
+                <label for="orgulloso">
+                    <input type="radio" checked name="personality" value="orgulloso" />Orgulloso
+                </label>
+                <label for="inteligente">
+                    <input type="radio" name="personality" value="inteligente" />Inteligente
+                </label>
+                <label for="valiente">
+                    <input type="radio" name="personality" value="valiente" />Valiente
+                </label>
+                <label for="inteligente">
+                    <input type="radio" name="personality" value="humilde" />Humilde
+                </label>
+                <div>
+                    <h4>Elegi tus criaturas fantásticas preferidas</h4>
+                    <label for="lechuza">
+                        <input checked type="checkbox" name="animals" value="lechuza" />Lechuza
+                    </label>
+                    <label for="hipogrifo">
+                        <input type="checkbox" name="animals" value="hipogrifo" />Hipogrifo
+                    </label>
+                    <label for="gato">
+                        <input type="checkbox" name="animals" value="gato" />Gato
+                    </label>
+                </div>
+                <label>Ingrese su nombre aquí...</label>
+                <input required type="text" />
+                <button type="submit">¡Descubrí!</button>
+            </form>
+        </div>
+        <a href="#header">Volver a arriba</a>
+
+    </main>
+</body>
+
+</html>
