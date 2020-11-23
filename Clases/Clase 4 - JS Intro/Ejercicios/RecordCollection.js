@@ -7,7 +7,8 @@
 // Una id.
 // Una prop (como "artist" o "tracks").
 // y un valor.
-// Debemos completar la funcion CUMPLIENDO LAS REGLAS QUE SE ENCUENTRAN DEBAJO.
+
+// Debemos completar la función CUMPLIENDO LAS REGLAS QUE SE ENCUENTRAN DEBAJO.
 
 // La función siempre debe retornar un objeto.
 // Si prop no es "tracks" y "value" no es una cadena vacía, cambiar la "prop" del album por ese "value".
@@ -38,7 +39,24 @@ var collection = {
 
 // Cambia solo código debajo de esta linea
 function updateRecords(object, id, prop, value) {
+	if (prop != 'tracks' && value != '') {
+		object[id][prop] = value;
+	}
+	if (prop == 'tracks' && !object[id].hasOwnProperty('tracks')) {
+		object[id].tracks = [value];
+	}
+
 	return object;
 }
 
-updateRecords(collection, 5439, 'artist', 'ABBA');
+var result = updateRecords(collection, 5439, 'artist', 'ABBA');
+console.log(result);
+
+result = updateRecords(collection, 5439, 'tracks', 'Take a Chance on Me');
+console.log(result);
+
+result = updateRecords(collection, 2548, 'tracks', '');
+console.log(result);
+
+result = updateRecords(collection, 2468, 'tracks', 'Free');
+console.log(result);
