@@ -6,12 +6,15 @@ var characters = [
 	['Gandalf', 'Saruman'],
 	['Frodo', 'Pippin', 'Merry', 'Sam'],
 ];
-var ind = 3;
 
+//While
+// var ind = 3;
 // do {
-// 	ind--;
-// 	console.log('In the loop!');
+// 	ind -= 1;
+// 	console.log(ind);
 // } while (ind > 0);
+
+//For
 
 // for (var i = 0; i < characters.length; i++) {
 // 	for (var j = 0; j < characters[i].length; j++) {
@@ -19,45 +22,39 @@ var ind = 3;
 // 	}
 // }
 
-//JS Objects /JSON
-// var person = {
-// 	name: 'Gabriel',
-// 	age: 25,
-// 	isEnginner: false,
-// };
+//JS Object
 
 var hobbit = {
 	name: 'Frodo',
-	age: 70,
-	personality: ['smart', 'noble'],
+	age: 75,
+	personality: ['noble', 'courageous'],
 	friend: {
 		name: 'Sam',
 		age: 70,
-		personality: ['loyal', 'courageous'],
+		personality: ['loyal', 'brave'],
 	},
 };
 
-// console.log(hobbit.hasOwnProperty('height'));
-
-// function isFriendLikeThat(object, quirk) {
-// 	if (object.hasOwnProperty('friend')) {
-// 		if (object.friend.hasOwnProperty('personality')) {
-// 			for (var i = 0; i < object.friend.personality.length; i++) {
-// 				if (object.friend.personality[i] == quirk) {
-// 					return 'Your friend is like that!';
-// 				}
-// 			}
-// 		}
-// 	}
-// 	return 'Your friend is not like that!';
+// function logPropertyObject(object, prop) {
+// 	console.log(object[prop]);
 // }
-// var result = isFriendLikeThat(hobbit, 'arrogant');
 
-function logProperty(object, prop) {
-	console.log(object[prop]);
+function isFriendLikeThat(object, quirk) {
+	if (object.hasOwnProperty('friend')) {
+		if (object.friend.hasOwnProperty('personality')) {
+			for (var i = 0; i < object.friend.personality.length; i++) {
+				if (object.friend.personality[i] == quirk) {
+					return 'Your friend is like that!';
+				}
+			}
+		}
+	}
+	return 'Your friend is not like that!';
 }
 
-var propi = 'friend';
-console.log(hobbit[propi]);
+// var result = hobbit.hasOwnProperty('pico');
+var result = isFriendLikeThat(hobbit, 'arrogant');
+console.log(result);
 
-logProperty(hobbit, 'name');
+// console.log(hobbit['personality']);
+// logPropertyObject(hobbit, 'personality');
