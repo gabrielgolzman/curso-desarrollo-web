@@ -39,13 +39,6 @@ var collection = {
 
 // Cambia solo código debajo de esta linea
 function updateRecords(object, id, prop, value) {
-	if (prop != 'tracks' && value != '') {
-		object[id][prop] = value;
-	}
-	if (prop == 'tracks' && !object[id].hasOwnProperty('tracks')) {
-		object[id].tracks = [value];
-	}
-
 	return object;
 }
 
