@@ -1,14 +1,21 @@
 import React from 'react';
 
-import './Person.css';
+import classes from './Person.module.css';
 
 const person = (props) => {
+	/*
+    props = {
+        name: 'sadnasdjasn',
+        age:'sdasdas'
+    }
+    */
+
 	return (
-		<div className="Person">
-			<input onChange={props.changed} value={props.name} />
+		<div className={classes.Person}>
 			<p onClick={props.click}>
-				Mi nombre es {props.name} y tengo {props.age} años
+				Me llamo {props.name} y tengo {props.age} años
 			</p>
+			<input onChange={props.changed} value={props.name} />
 		</div>
 	);
 };
