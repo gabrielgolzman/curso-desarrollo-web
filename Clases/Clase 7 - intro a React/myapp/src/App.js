@@ -2,27 +2,42 @@ import React, { Component } from 'react';
 
 import classes from './App.module.css';
 
-import Person from './components/Person/Person';
+import Persons from './components/Persons/Persons';
+import Cockpit from './components/Cockpit/Cockpit';
 
 class App extends Component {
-	state = {
-		persons: [
-			{
-				name: 'Matias Peralta',
-				age: '23',
-			},
-			{
-				name: 'Tomas Zorzolo',
-				age: '24',
-			},
-			{
-				name: 'Leandro Castillo',
-				age: '23',
-			},
-		],
-		showPersons: false,
-		university: 'UTN',
-	};
+	constructor(props) {
+		super(props);
+		console.log('[App.js] constructor');
+		this.state = {
+			persons: [
+				{
+					name: 'Matias Peralta',
+					age: '23',
+				},
+				{
+					name: 'Tomas Zorzolo',
+					age: '24',
+				},
+				{
+					name: 'Leandro Castillo',
+					age: '23',
+				},
+			],
+			showPersons: false,
+			university: 'UTN',
+		};
+	}
+
+	static getDerivedStateFromProps(props, state) {
+		console.log('[App.js] getDerivedStateFromProps');
+		console.log(state);
+		return state;
+	}
+
+	componentDidMount() {
+		console.log('[App.js] componentDidMount');
+	}
 
 	clickHandler = (newName) => {
 		this.setState({
@@ -65,27 +80,21 @@ class App extends Component {
 	};
 
 	render() {
-		const persons = this.state.showPersons
-			? this.state.persons.map((person, index) => (
-					<Person
-						changed={(event) => this.switchNameHandler(event, index)}
-						key={index}
-						name={person.name}
-						age={person.age}
-						click={() => this.deletePersonHandler(index)}
-					/>
-			  ))
-			: null;
-		const styles = [classes.Button];
-		if (this.state.showPersons) {
-			styles.push(classes.Cancel);
-		}
+		console.log('[App.js] render');
+		const persons = this.state.showPersons ? (
+			<Persons
+				persons={this.state.persons}
+				changed={this.switchNameHandler}
+				clicked={this.deletePersonHandler}
+			/>
+		) : null;
+
 		return (
 			<div className={classes.App}>
-				<h1>Mi curso de React!</h1>
-				<button className={styles.join(' ')} onClick={this.showPersonsHandler}>
-					Mostrar personas!
-				</button>
+				<Cockpit
+					clicked={this.showPersonsHandler}
+					showPersons={this.state.showPersons}
+				/>
 				{persons}
 			</div>
 		);
