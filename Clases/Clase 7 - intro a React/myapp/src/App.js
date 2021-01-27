@@ -13,19 +13,21 @@ class App extends Component {
 			persons: [
 				{
 					name: 'Matias Peralta',
-					age: '23',
+					age: 23,
 				},
 				{
 					name: 'Tomas Zorzolo',
-					age: '24',
+					age: 24,
 				},
 				{
 					name: 'Leandro Castillo',
-					age: '23',
+					age: 23,
 				},
 			],
 			showPersons: false,
 			university: 'UTN',
+			showCockpit: true,
+			changedCounter: 0,
 		};
 	}
 
@@ -44,15 +46,15 @@ class App extends Component {
 			persons: [
 				{
 					name: 'Matias Peralta',
-					age: '23',
+					age: 23,
 				},
 				{
 					name: newName,
-					age: '24',
+					age: 24,
 				},
 				{
 					name: 'Leandro Castillo',
-					age: '23',
+					age: 23,
 				},
 			],
 		});
@@ -60,6 +62,10 @@ class App extends Component {
 
 	showPersonsHandler = () => {
 		this.setState({ showPersons: !this.state.showPersons });
+	};
+
+	showCockpitHandler = () => {
+		this.setState({ showCockpit: !this.state.showCockpit });
 	};
 
 	deletePersonHandler = (index) => {
@@ -76,7 +82,12 @@ class App extends Component {
 		let person = { ...persons[index] };
 		person.name = event.target.value;
 		persons[index] = person;
-		this.setState({ persons: persons });
+		this.setState((prevState) => {
+			return {
+				persons: persons,
+				changedCounter: prevState.changedCounter + 1,
+			};
+		});
 	};
 
 	render() {
@@ -89,12 +100,19 @@ class App extends Component {
 			/>
 		) : null;
 
+		const showCockpit = this.state.showCockpit ? (
+			<Cockpit
+				clicked={this.showPersonsHandler}
+				showPersons={this.state.showPersons}
+			/>
+		) : null;
+
 		return (
 			<div className={classes.App}>
-				<Cockpit
-					clicked={this.showPersonsHandler}
-					showPersons={this.state.showPersons}
-				/>
+				<button onClick={this.showCockpitHandler}>
+					{this.state.showCockpit ? 'Remover encabezado' : 'Agregar encabezado'}
+				</button>
+				{showCockpit}
 				{persons}
 			</div>
 		);
